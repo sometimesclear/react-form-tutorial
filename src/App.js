@@ -9,7 +9,7 @@ class App extends Component {
         job: 'Dancer',
       },
       {
-        name: 'Youra',
+        name: 'Heejin',
         job: 'Designer',
       },
       {
@@ -21,7 +21,7 @@ class App extends Component {
         job: 'Actor',
       },
     ]
-    
+
     return (
       <div className='container'>
         <Table characterData={characters} />

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 // 컴포넌트는 다른 컴포넌트에 중첨될 수 있으며 Simple component 와 Class component가 혼합될 수 있다.
 
@@ -21,6 +21,9 @@ const TableBody = (props) => {
       <tr key={index}>
         <td>{row.name}</td>
         <td>{row.job}</td>
+        <td>
+          <button onClick={() => props.removeCharacter(index)}>Delete</button>
+        </td>
       </tr>
     )
   })
@@ -30,17 +33,29 @@ const TableBody = (props) => {
 
 // Class Component 
 // 클래스 컴포넌트에는 render() 가 포함되어야하며 return 은 하나의 상위 요소만 반환할 수 있다.
-class Table extends Component {
-  render() {
-    const {characterData} = this.props
+// class Table extends Component {
+//   render() {
+//     const {characterData} = this.props
 
-    return (
+//     return (
+//     <table>
+//       <TableHeader />
+//       <TableBody characterData={characterData} />
+//     </table>
+//     )
+//   }
+// }
+
+
+const Table = (props) => {
+  const {characterData, removeCharacter} = props
+  
+  return (
     <table>
       <TableHeader />
-      <TableBody characterData={characterData} />
+      <TableBody characterData={characterData} removeCharacter={removeCharacter} />
     </table>
-    )
-  }
+  )
 }
 
 export default Table
